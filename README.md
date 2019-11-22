@@ -12,7 +12,7 @@
 # Install graphis.h in CodeBlocks
    1. Copy "graphics.h" and "winbgim.h" into (instalation folder of CodeBlocks)CodeBlocks\MinGW\include
    2. Copy "libbgi.a" into (instalation folder of CodeBlocks)CodeBlocks\MinGW\lib
-   3. In CodeBlocks, Settings->Compiler...->Global compiler settings->Linker settings
-      On the right in "Other linker options:" paste: -lbgi -lgdi32 -lcomdlg32 -luuid -loleaut32 -lole32
+   3. In CodeBlocks, Settings->Compiler...->Global compiler settings->Linker settings.
+      On the right in "Other linker options:" paste: -lbgi -lgdi32 -lcomdlg32 -luuid -loleaut32 -lole32.
       On the left in "Link libraries" click Add and select from (instalation folder of CodeBlocks)CodeBlocks\MinGW\lib "libbgi.a"
    4. Click "OK"
