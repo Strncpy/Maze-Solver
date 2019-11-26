@@ -8,9 +8,15 @@
  ***************************************************/
 
 #include <stdio.h>
+#include <graphics.h>
+#include "headers/menu.h"
+#include "headers/printing.h"
 
 int main()
 {
-    printf("Work in progres.");
+    //printf("Work in progres.");
+    init_window();
+    main_menu();
+    closegraph();
     return 0;
 }

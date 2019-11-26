@@ -1,0 +1,36 @@
+# depslib dependency file v1.0
+1574808911 source:d:\proiecte\poli\cp\maze-solver\main.cpp
+	<stdio.h>
+	<graphics.h>
+	"headers/menu.h"
+	"headers/printing.h"
+
+1574809597 d:\proiecte\poli\cp\maze-solver\headers\menu.h
+
+1574809638 source:d:\proiecte\poli\cp\maze-solver\sources\menu.cpp
+	<stdio.h>
+	<stdlib.h>
+	<graphics.h>
+	"../headers/menu.h"
+	"../headers/printing.h"
+
+1574809425 source:d:\proiecte\poli\cp\maze-solver\sources\printing.cpp
+	<stdio.h>
+	<stdlib.h>
+	<graphics.h>
+	"../headers/menu.h"
+	"../headers/printing.h"
+	"../headers/memoryalloc.h"
+
+1574809511 d:\proiecte\poli\cp\maze-solver\headers\printing.h
+
+1574805908 source:d:\proiecte\poli\cp\maze-solver\sources\memoryalloc.cpp
+	<stdlib.h>
+	<stdio.h>
+	<stack>
+	<math.h>
+	"../headers/memoryalloc.h"
+
+1574499388 d:\proiecte\poli\cp\maze-solver\headers\memoryalloc.h
+	<stdio.h>
+
