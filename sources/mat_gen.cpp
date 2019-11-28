@@ -22,7 +22,7 @@ int mat(int n)
 {
     srand(time(NULL));
     matrix=allocate_matrix(n);
-	vi=(visited*)malloc(((n/4)+1)*sizeof(visited));
+	vi=(visited*)malloc((((n*n)/4)+2)*sizeof(visited));
 }
 
 int* matrix_s(int n)
@@ -192,13 +192,14 @@ void  mov_arb(int s)
 int* gen_mat(int dim)
 {
     n=dim;
-    mat(n);
-    matrix_s(n);
+    mat((long)n);
+    matrix_s((long)n);
     first_step(3,3);
     while(!((i==3)&&(j==3)))
     {
         path_an(i,j);
     }
-    temp2(matrix,long(n));
+    //temp2(matrix,long(n));
+    //free((visited)vi);
     return matrix;
 }
