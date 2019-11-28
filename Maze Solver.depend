@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1574808911 source:d:\proiecte\poli\cp\maze-solver\main.cpp
+1574937552 source:d:\proiecte\poli\cp\maze-solver\main.cpp
 	<stdio.h>
 	<graphics.h>
 	"headers/menu.h"
@@ -14,15 +14,16 @@
 	"../headers/menu.h"
 	"../headers/printing.h"
 
-1574809425 source:d:\proiecte\poli\cp\maze-solver\sources\printing.cpp
+1574940408 source:d:\proiecte\poli\cp\maze-solver\sources\printing.cpp
 	<stdio.h>
 	<stdlib.h>
 	<graphics.h>
 	"../headers/menu.h"
 	"../headers/printing.h"
 	"../headers/memoryalloc.h"
+	"../headers/mat_gen.h"
 
-1574809511 d:\proiecte\poli\cp\maze-solver\headers\printing.h
+1574939057 d:\proiecte\poli\cp\maze-solver\headers\printing.h
 
 1574805908 source:d:\proiecte\poli\cp\maze-solver\sources\memoryalloc.cpp
 	<stdlib.h>
@@ -33,4 +34,14 @@
 
 1574499388 d:\proiecte\poli\cp\maze-solver\headers\memoryalloc.h
 	<stdio.h>
+
+1574940707 source:d:\proiecte\poli\cp\maze-solver\sources\mat_gen.cpp
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"../headers/memoryalloc.h"
+	"../headers/mat_gen.h"
+	"../headers/printing.h"
+
+1574939520 d:\proiecte\poli\cp\maze-solver\headers\mat_gen.h
 

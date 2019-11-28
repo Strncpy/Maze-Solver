@@ -32,10 +32,13 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="headers/mat_gen.h" />
 		<Unit filename="headers/memoryalloc.h" />
 		<Unit filename="headers/menu.h" />
 		<Unit filename="headers/printing.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="sources/mat_gen.cpp" />
+		<Unit filename="sources/memoryalloc.cpp" />
 		<Unit filename="sources/menu.cpp" />
 		<Unit filename="sources/printing.cpp" />
 		<Extensions>
