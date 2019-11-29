@@ -183,7 +183,7 @@ void game_menu()
     cleardevice();
 
     /// TEMPORARY
-    int n=113;
+    int n=69;
     int *matrix;
     matrix=gen_mat(n);
     ///
@@ -209,7 +209,7 @@ void game_menu()
         case 2:
             {
                 print_header();
-                draw_maze(matrix,n,start_x,start_y,dim_cel,show_cel_no_y,n,cel_start_x,cel_start_y);
+                draw_maze(matrix,n,start_x,start_y,dim_cel,show_cel_no_x,n,cel_start_x,cel_start_y);
             } break;
         case 3:
             {
@@ -225,7 +225,7 @@ void game_menu()
                     cel_start_y-=2;
                 break;
         case 'i':
-                if(cel_start_x>3&&(dim_comp==1||dim_comp==3))
+                if(cel_start_x>3&&(dim_comp==1||dim_comp==2||dim_comp==3))
                     cel_start_x-=2;
                 break;
         case 'l':
@@ -233,7 +233,7 @@ void game_menu()
                     cel_start_y+=2;
                 break;
         case 'k':
-                if(cel_start_x<(n-show_cel_no_x)&&(dim_comp==1||dim_comp==3))
+                if(cel_start_x<(n-show_cel_no_x)&&(dim_comp==1||dim_comp==2||dim_comp==3))
                     cel_start_x+=2;
                 break;
         case 'b':
