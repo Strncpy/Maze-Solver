@@ -2,6 +2,7 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
+<<<<<<< HEAD
 	<File name="headers\player.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="176" topLine="0" />
@@ -25,35 +26,58 @@
 	<File name="sources\printing.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="358" topLine="0" />
+=======
+	<File name="sources\printing.cpp" open="1" top="1" tabpos="4" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5089" topLine="291" />
+>>>>>>> 340e2e53f9cd9879f0b0dfa83eb7c14e10389efa
 		</Cursor>
-		<Folding>
-			<Collapse line="18" />
-			<Collapse line="32" />
-			<Collapse line="52" />
-		</Folding>
 	</File>
+<<<<<<< HEAD
+=======
+	<File name="sources\mat_gen.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="203" topLine="27" />
+		</Cursor>
+	</File>
+>>>>>>> 340e2e53f9cd9879f0b0dfa83eb7c14e10389efa
 	<File name="headers\memoryalloc.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="115" topLine="0" />
 		</Cursor>
 	</File>
+<<<<<<< HEAD
 	<File name="headers\printing.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+=======
+	<File name="headers\printing.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+>>>>>>> 340e2e53f9cd9879f0b0dfa83eb7c14e10389efa
 		<Cursor>
 			<Cursor1 position="556" topLine="0" />
 		</Cursor>
 	</File>
+<<<<<<< HEAD
 	<File name="graphics.h" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="0" topLine="0" />
+=======
+	<File name="headers\menu.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="204" topLine="0" />
+>>>>>>> 340e2e53f9cd9879f0b0dfa83eb7c14e10389efa
 		</Cursor>
 	</File>
 	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
+<<<<<<< HEAD
 			<Cursor1 position="586" topLine="0" />
+=======
+			<Cursor1 position="632" topLine="0" />
+>>>>>>> 340e2e53f9cd9879f0b0dfa83eb7c14e10389efa
 		</Cursor>
 	</File>
 	<File name="sources\mat_gen.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
+<<<<<<< HEAD
 			<Cursor1 position="374" topLine="0" />
 		</Cursor>
 	</File>
@@ -65,6 +89,19 @@
 	<File name="sources\menu.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="334" topLine="0" />
+=======
+			<Cursor1 position="631" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="headers\mat_gen.h" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="238" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="sources\menu.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3495" topLine="54" />
+>>>>>>> 340e2e53f9cd9879f0b0dfa83eb7c14e10389efa
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
