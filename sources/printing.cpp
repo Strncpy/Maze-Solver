@@ -6,7 +6,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <graphics.h>
+#include "../graphics.h"
 #include "../headers/menu.h"
 #include "../headers/printing.h"
 #include "../headers/memoryalloc.h"
