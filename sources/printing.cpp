@@ -11,6 +11,7 @@
 #include "../headers/printing.h"
 #include "../headers/memoryalloc.h"
 #include "../headers/mat_gen.h"
+#include "../headers/player.h"
 
 /********************************************************
 *  Description: Enum for maze elements                  *
@@ -43,6 +44,8 @@ enum font_settings
     //Direction of the text
     direction=0
 };
+
+struct player_stats player;
 
 /********************************************************
 *  Description: Prints the START MENU of the project    *
@@ -117,6 +120,8 @@ void start_menu()
         c=getch();
     }
 
+    strcpy(player.name,name);
+
     if(strcmp(name,"back")==0)
         return;
     else
@@ -165,13 +170,15 @@ void print_header()
     outtextxy(80,80,"0");
 
     outtextxy(220,50,"LEVEL");
-    outtextxy(220,80,"0");
+    char no[3];
+    sprintf(no,"%d",player.score);
+    outtextxy(220,80,no);
 
     outtextxy(360,50,"MOVES");
     outtextxy(360,80,"0");
 
     outtextxy(500,50,"NAME");
-    outtextxy(500,80,"man");
+    outtextxy(500,80,player.name);
 }
 
 /********************************************************
@@ -183,10 +190,10 @@ void game_menu()
     cleardevice();
 
     /// TEMPORARY
-    int n=21;
+    int n=15;
     int *matrix;
 
-    int a;
+    /*int a;
     FILE *f=fopen("maze_tmp.txt","r");
     fscanf(f,"%d",&n);
     matrix=allocate_matrix(n);
@@ -195,67 +202,141 @@ void game_menu()
         {
             fscanf(f,"%d",&a);
             element_change_matrix(matrix,n,i,j,a);
-        }
+        }*/
 
 
-    //matrix=gen_mat(n);
+
     ///
+
+    player.score=7;
+    n=player.score;
+    matrix=gen_mat(n);
+    element_change_matrix(matrix,n,3,3,3);
+
+    for(int i=1;i<=n;i++)
+    {
+        for(int j=1;j<=n;j++)
+        {
+            printf("%d ",get_matrix_element(matrix,n,i,j));
+        }
+        printf("\n");
+    }
 
     char choise;
     int dim_comp;
-    int cel_start_x=3,cel_start_y=3;
+    int cel_start_x=3,cel_start_y=3,player_poz_x=3,player_poz_y=3;
 
-    dim_comp=dim_comparation(n);
-    selection:
-    switch(dim_comp)
+
+    while(player_poz_x!=n-2||player_poz_y!=n-2)
     {
-        case 0:
+        dim_comp=dim_comparation(n);
+        switch(dim_comp)
+        {
+            case 0:
+                {
+                    print_header();
+                    draw_maze(matrix,n,start_x,start_y,dim_cel,n,n,cel_start_x,cel_start_y);
+                } break;
+            case 1:
+                {
+                    print_header();
+                    draw_maze(matrix,n,start_x,start_y,dim_cel,n,show_cel_no_y,cel_start_x,cel_start_y);
+                } break;
+            case 2:
+                {
+                    print_header();
+                    draw_maze(matrix,n,start_x,start_y,dim_cel,show_cel_no_x,n,cel_start_x,cel_start_y);
+                } break;
+            case 3:
+                {
+                    print_header();
+                    draw_maze(matrix,n,start_x,start_y,dim_cel,show_cel_no_x,show_cel_no_y,cel_start_x,cel_start_y);
+                } break;
+        }
+        /*printf("\n\n");
+        for(int i=1;i<=n;i++)
+        {
+            for(int j=1;j<=n;j++)
             {
-                print_header();
-                draw_maze(matrix,n,start_x,start_y,dim_cel,n,n,cel_start_x,cel_start_y);
-            } break;
-        case 1:
-            {
-                print_header();
-                draw_maze(matrix,n,start_x,start_y,dim_cel,n,show_cel_no_y,cel_start_x,cel_start_y);
-            } break;
-        case 2:
-            {
-                print_header();
-                draw_maze(matrix,n,start_x,start_y,dim_cel,show_cel_no_x,n,cel_start_x,cel_start_y);
-            } break;
-        case 3:
-            {
-                print_header();
-                draw_maze(matrix,n,start_x,start_y,dim_cel,show_cel_no_x,show_cel_no_y,cel_start_x,cel_start_y);
-            } break;
-    }
-    choise=getch();
-    switch(choise)
-    {
-        case 'j':
-                if(cel_start_y>3&&(dim_comp==0||dim_comp==2||dim_comp==3))
-                    cel_start_y-=2;
-                break;
-        case 'i':
-                if(cel_start_x>3&&(dim_comp==1||dim_comp==2||dim_comp==3))
-                    cel_start_x-=2;
-                break;
-        case 'l':
-                if(cel_start_y<(n-show_cel_no_y)&&(dim_comp==0||dim_comp==2||dim_comp==3))
-                    cel_start_y+=2;
-                break;
-        case 'k':
-                if(cel_start_x<(n-show_cel_no_x)&&(dim_comp==1||dim_comp==2||dim_comp==3))
-                    cel_start_x+=2;
-                break;
-        case 'b':
-            {
-                free(matrix);
-                return;
+                printf("%d ",get_matrix_element(matrix,n,i,j));
             }
+            printf("\n");
+        }
+        printf("%d %d\n",player_poz_x,player_poz_y);*/
+        choise=getch();
+        switch(choise)
+        {
+            /// Maze movement
+            case 'j':
+                    if(cel_start_y>3&&(dim_comp==0||dim_comp==2||dim_comp==3))
+                        cel_start_y-=2;
+                    break;
+            case 'i':
+                    if(cel_start_x>3&&(dim_comp==1||dim_comp==2||dim_comp==3))
+                        cel_start_x-=2;
+                    break;
+            case 'l':
+                    if(cel_start_y<(n-show_cel_no_y)&&(dim_comp==0||dim_comp==2||dim_comp==3))
+                        cel_start_y+=2;
+                    break;
+            case 'k':
+                    if(cel_start_x<(n-show_cel_no_x)&&(dim_comp==1||dim_comp==2||dim_comp==3))
+                        cel_start_x+=2;
+                    break;
+
+            /// Player movement
+            case 'a':
+                {
+                    if(move_left(matrix,n,player_poz_x,player_poz_y))
+                    {
+                        tray(matrix,n,player_poz_x,player_poz_y-2,player_poz_x,player_poz_y);
+                        player_poz_y-=2;
+                    }
+
+                } break;
+            case 'd':
+                {
+                    if(move_right(matrix,n,player_poz_x,player_poz_y))
+                    {
+                        tray(matrix,n,player_poz_x,player_poz_y+2,player_poz_x,player_poz_y);
+                        player_poz_y+=2;
+                    }
+                } break;
+            case 's':
+                {
+                    if(move_down(matrix,n,player_poz_x,player_poz_y))
+                    {
+                        tray(matrix,n,player_poz_x+2,player_poz_y,player_poz_x,player_poz_y);
+                        player_poz_x+=2;
+                    }
+                } break;
+            case 'w':
+                {
+                    if(move_up(matrix,n,player_poz_x,player_poz_y))
+                    {
+                        tray(matrix,n,player_poz_x-2,player_poz_y,player_poz_x,player_poz_y);
+                        player_poz_x-=2;
+                    }
+                } break;
+
+
+            case 'b':
+                {
+                    free(matrix);
+                    break;
+                } break;
+        }
+        if(player_poz_x==n-2&&player_poz_y==n-2)
+        {
+            player.score+=2;
+            n=player.score;
+            dealoc_matrix(matrix);
+            matrix=gen_mat(n);
+            element_change_matrix(matrix,n,3,3,3);
+            player_poz_x=3;
+            player_poz_y=3;
+        }
     }
-    goto selection;
 }
 
 void draw_path(int *matrix,int n,int x,int y,int cel_l,int cel_c)
