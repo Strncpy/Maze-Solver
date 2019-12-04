@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1575039197 source:d:\proiecte\poli\cp\maze-solver\main.cpp
+1575406006 source:d:\proiecte\poli\cp\maze-solver\main.cpp
 	<stdio.h>
 	<graphics.h>
 	"headers/menu.h"
@@ -14,7 +14,7 @@
 	"../headers/menu.h"
 	"../headers/printing.h"
 
-1575036959 source:d:\proiecte\poli\cp\maze-solver\sources\printing.cpp
+1575410747 source:d:\proiecte\poli\cp\maze-solver\sources\printing.cpp
 	<stdio.h>
 	<stdlib.h>
 	<graphics.h>
