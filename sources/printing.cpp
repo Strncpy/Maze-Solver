@@ -183,17 +183,30 @@ void game_menu()
     cleardevice();
 
     /// TEMPORARY
-    int n=69;
+    int n=21;
     int *matrix;
-    matrix=gen_mat(n);
+
+    int a;
+    FILE *f=fopen("maze_tmp.txt","r");
+    fscanf(f,"%d",&n);
+    matrix=allocate_matrix(n);
+    for(int i=1;i<=n;i++)
+        for(int j=1;j<=n;j++)
+        {
+            fscanf(f,"%d",&a);
+            element_change_matrix(matrix,n,i,j,a);
+        }
+
+
+    //matrix=gen_mat(n);
     ///
 
     char choise;
     int dim_comp;
     int cel_start_x=3,cel_start_y=3;
 
-    selection:
     dim_comp=dim_comparation(n);
+    selection:
     switch(dim_comp)
     {
         case 0:
@@ -245,6 +258,26 @@ void game_menu()
     goto selection;
 }
 
+void draw_path(int *matrix,int n,int x,int y,int cel_l,int cel_c)
+{
+    /// TO DO GENERALIZE
+    int left=start_x+(dim_cel)*(cel_c-1)+20;
+    int top=start_y+(dim_cel)*(cel_l-1)+20;
+    int right=start_x+(dim_cel)*(cel_c-1)+dim_cel/3;
+    int bottom=start_y+(dim_cel)*(cel_l-1)+dim_cel/3;
+    if(get_matrix_element(matrix,n,x,y)==2)
+    {
+        setfillstyle(SOLID_FILL,LIGHTGRAY);
+        bar(left,top,right,bottom);
+    }
+    if(get_matrix_element(matrix,n,x,y)==3)
+    {
+        setfillstyle(SOLID_FILL,LIGHTCYAN);
+        circle(left-5,top-5,dim_cel/3-2);
+        floodfill(left-4,top-4,WHITE);
+    }
+}
+
 /********************************************************
 *  Description: Draws the maze                          *
 *  Parameters: int *matrix - The matrix of the maze     *
@@ -252,39 +285,58 @@ void game_menu()
 *                            path                       *
 *              int n - The dimension of the matrix      *
 *              int start_x - The coordinates on the     *
-*              int start_y   screen from witch to start *
+*              int start_y   SCREEN from witch to start *
 *                            drawing                    *
 *              int dim_cel - The dimension of the line  *
 *                            in pixels (how long should *
 *                            the cell be)               *
-*              int show_cel_no - How many cells to show *
-*                                at once                *
+*              int show_cel_no_x - How many cells to    *
+*                                  show at once         *
+*                                  HORIZONTALLY         *
+*              int show_cel_no_Y - How many cells to    *
+*                                  show at once         *
+*                                  VERTICALLY           *
+*              int cel_start_x - The coordinates in the *
+*              int cel_start_y   MATRIX form which to   *
+*                                start drawing          *
 *********************************************************/
 void draw_maze(int *matrix,long n,int start_x,int start_y,int dim_cel,int show_cel_no_x,int show_cel_no_y,int cel_start_x,int cel_start_y)
 {
     int no_zero=0,cel_l=1,cel_c=1;
 
     if(cel_start_x==3)
-        line(start_x,start_y,((show_cel_no_y-1)/2)*dim_cel+start_x,start_y);
+        if(show_cel_no_x==n)
+            line(start_x,start_y,(show_cel_no_y/2-1)*dim_cel+start_x,start_y);
+        else
+            line(start_x,start_y,(show_cel_no_y/2)*dim_cel+start_x,start_y);
+
     if(cel_start_y==3)
-        line(start_x,start_y,start_x,(show_cel_no_x/2+2)*dim_cel+start_x);
+        if(show_cel_no_y==n)
+            line(start_x,start_y,start_x,(show_cel_no_x/2+1)*dim_cel+start_x);
+        else
+            line(start_x,start_y,start_x,(show_cel_no_x/2+2)*dim_cel+start_x);
 
     int i=cel_start_x;
     int j=cel_start_y;
 
-    while(cel_l<show_cel_no_x/2+1)
-    //for(int i=cel_start_x;i<show_cel_no_y;i+=2)
+    int horizontal,vertical;
+
+    show_cel_no_x==n?vertical=n/2:vertical=show_cel_no_x/2+1;
+    show_cel_no_y==n?horizontal=n/2:horizontal=show_cel_no_y/2+1;
+
+    while(cel_l<vertical)
     {
         cel_c=1;
         j=cel_start_y;
-        while(cel_c<show_cel_no_y/2+1)
-        //for(int j=cel_start_y;j<show_cel_no_x;j+=2)
+        while(cel_c<horizontal)
         {
-            no_zero=get_matrix_element(matrix,n,i,j+1)+get_matrix_element(matrix,n,i+1,j+1)+get_matrix_element(matrix,n,i+1,j);
-            //printf("%d %d \n%d %d\n%d %d\n",i,j,get_matrix_element(matrix,n,i,j),get_matrix_element(matrix,n,i,j+1),get_matrix_element(matrix,n,i+1,j),get_matrix_element(matrix,n,i+1,j+1));
-            //printf("%d \n",get_matrix_element(matrix,n,i,j));
+            no_zero=0;
+            get_matrix_element(matrix,n,i,j+1)==1?no_zero++:no_zero;
+            get_matrix_element(matrix,n,i+1,j)==1?no_zero++:no_zero;
+            get_matrix_element(matrix,n,i+1,j+1)==1?no_zero++:no_zero;
             if(no_zero==wall)
             {
+                draw_path(matrix,n,i,j,cel_l,cel_c);
                 cel_c++;
                 j+=2;
                 continue;
@@ -302,6 +354,7 @@ void draw_maze(int *matrix,long n,int start_x,int start_y,int dim_cel,int show_c
                     line(start_x+(cel_c-1)*dim_cel,start_y+cel_l*dim_cel,start_x+cel_c*dim_cel,start_y+cel_l*dim_cel);
                 }
             }
+            draw_path(matrix,n,i,j,cel_l,cel_c);
             cel_c++;
             j+=2;
         }
