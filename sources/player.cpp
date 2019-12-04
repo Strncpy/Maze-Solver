@@ -58,4 +58,17 @@ int tray(int *matrix,int n,int a,int b,int a1,int b1)
         element_change_matrix(matrix,n,a,b,3);
         element_change_matrix(matrix,n,a1,b1,0);
     }
+
+int tray(int *matrix,int n,int a,int b,int a1,int b1)
+{
+    if (get_matrix_element( matrix,n,a,b)==0)
+        {
+        get_matrix_element( matrix,n,a,b)=3;
+        get_matrix_element( matrix,n,a1,b1)=2;
+        }
+    if (get_matrix_element( matrix,n,a,b)==2)
+        {
+        get_matrix_element( matrix,n,a,b)=3;
+        get_matrix_element( matrix,n,a1,b1)=0;
+        }
 }
