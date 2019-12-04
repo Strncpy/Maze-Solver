@@ -18,11 +18,11 @@ int N,V,S,E;
 int v[4],k=0,s,m;
 int *matrix;
 
-int mat(int n)
+void mat(int n)
 {
     srand(time(NULL));
     matrix=allocate_matrix(n);
-	vi=(visited*)malloc((((n*n)/4)+2)*sizeof(visited));
+    vi=(visited*)malloc((((n*n)/4)+2)*sizeof(visited));
 }
 
 int* matrix_s(int n)
@@ -45,7 +45,7 @@ int* matrix_s(int n)
     return matrix;
 }
 
-int* first_step(int x,int y)
+void first_step(int x,int y)
 {
     i=x;
     j=y;
@@ -74,10 +74,9 @@ int* first_step(int x,int y)
         aux.y=j;
         vi[k]=aux;
     }
-    //return  matrix;
 }
 
-int path_an(int x,int y)
+void path_an(int x,int y)
 {
     i=x;
     j=y;
@@ -103,7 +102,6 @@ int path_an(int x,int y)
 
     mov_arb(whtogo(N,V,S,E));
 
-    //return N,V,S,E;
 }
 
 int whtogo(int N,int V,int S,int E)
@@ -186,7 +184,6 @@ void  mov_arb(int s)
         vi[k]=aux;
         m=k;
     }
-    //return matrix;
 }
 
 int* gen_mat(int dim)
@@ -199,7 +196,5 @@ int* gen_mat(int dim)
     {
         path_an(i,j);
     }
-    //temp2(matrix,long(n));
-    //free((visited)vi);
     return matrix;
 }
