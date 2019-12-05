@@ -193,8 +193,7 @@ int* gen_mat(int dim)
     matrix_s((long)n);
     first_step(3,3);
     while(!((i==3)&&(j==3)))
-    {
         path_an(i,j);
-    }
+    //free(vi);
     return matrix;
 }
