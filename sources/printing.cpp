@@ -208,7 +208,7 @@ void game_menu()
 
     ///
 
-    player.score=7;
+    player.score=11;
     n=player.score;
     matrix=gen_mat(n);
     element_change_matrix(matrix,n,3,3,3);
