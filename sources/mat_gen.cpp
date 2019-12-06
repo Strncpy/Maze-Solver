@@ -191,8 +191,8 @@ int* gen_mat(int dim)
     n=dim;
     k=0;
     m=0;
-    mat((long)n);
-    matrix_s((long)n);
+    mat(n);
+    matrix_s(n);
     first_step(3,3);
     while(!((i==3)&&(j==3)))
         path_an(i,j);
