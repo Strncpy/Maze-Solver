@@ -16,8 +16,8 @@ int main()
 {
     //printf("Work in progres.");
     init_window();
-    //main_menu();
-    game_menu();
+    main_menu();
+    //game_menu();
     closegraph();
     return 0;
 }

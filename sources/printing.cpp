@@ -45,6 +45,9 @@ enum font_settings
     direction=0
 };
 
+/********************************************************
+*  Description: Data for the player variable            *
+*********************************************************/
 struct player_stats player;
 
 /********************************************************
@@ -128,59 +131,6 @@ void start_menu()
         game_menu();
 }
 
-/// TEMPORARY
-void temp2(int *matrix,long n)
-{
-    for(int i=1;i<=n;i++)
-    {
-        for(int j=1;j<=n;j++)
-            printf("%d ",get_matrix_element(matrix,n,i,j));
-        printf("\n");
-    }
-}
-///
-
-/********************************************************
-*  Description: Compares the dimension of the matrix    *
-*               with the number of cells to show on the *
-*               x and y axes to know how to call the    *
-*               draw function for the maze              *
-*********************************************************/
-int dim_comparation(int n)
-{
-    if(n<=show_cel_no_x&&n<=show_cel_no_y)
-        return 0;
-    if(n<=show_cel_no_x&&n>show_cel_no_y)
-        return 1;
-    if(n>show_cel_no_x&&n<=show_cel_no_y)
-        return 2;
-    if(n>show_cel_no_x&&n>show_cel_no_y)
-        return 3;
-}
-
-/********************************************************
-*  Description: Prints the information about the player *
-*********************************************************/
-void print_header()
-{
-    cleardevice();
-
-    settextstyle(font_style,direction,font_size_int_med);
-    outtextxy(80,50,"LIVES");
-    outtextxy(80,80,"0");
-
-    outtextxy(220,50,"LEVEL");
-    char no[3];
-    sprintf(no,"%d",player.score);
-    outtextxy(220,80,no);
-
-    outtextxy(360,50,"MOVES");
-    outtextxy(360,80,"0");
-
-    outtextxy(500,50,"NAME");
-    outtextxy(500,80,player.name);
-}
-
 /********************************************************
 *  Description: Prints the GAME MENU of the project     *
 *               AND deals with the movement of the maze *
@@ -189,43 +139,17 @@ void game_menu()
 {
     cleardevice();
 
-    /// TEMPORARY
-    int n=15;
+    int n;
     int *matrix;
 
-    /*int a;
-    FILE *f=fopen("maze_tmp.txt","r");
-    fscanf(f,"%d",&n);
-    matrix=allocate_matrix(n);
-    for(int i=1;i<=n;i++)
-        for(int j=1;j<=n;j++)
-        {
-            fscanf(f,"%d",&a);
-            element_change_matrix(matrix,n,i,j,a);
-        }*/
-
-
-
-    ///
-
-    player.score=11;
+    player.score=15;
     n=player.score;
     matrix=gen_mat(n);
     element_change_matrix(matrix,n,3,3,3);
 
-    for(int i=1;i<=n;i++)
-    {
-        for(int j=1;j<=n;j++)
-        {
-            printf("%d ",get_matrix_element(matrix,n,i,j));
-        }
-        printf("\n");
-    }
-
     char choise;
     int dim_comp;
     int cel_start_x=3,cel_start_y=3,player_poz_x=3,player_poz_y=3;
-
 
     while(player_poz_x!=n-2||player_poz_y!=n-2)
     {
@@ -253,16 +177,6 @@ void game_menu()
                     draw_maze(matrix,n,start_x,start_y,dim_cel,show_cel_no_x,show_cel_no_y,cel_start_x,cel_start_y);
                 } break;
         }
-        /*printf("\n\n");
-        for(int i=1;i<=n;i++)
-        {
-            for(int j=1;j<=n;j++)
-            {
-                printf("%d ",get_matrix_element(matrix,n,i,j));
-            }
-            printf("\n");
-        }
-        printf("%d %d\n",player_poz_x,player_poz_y);*/
         choise=getch();
         switch(choise)
         {
@@ -319,11 +233,12 @@ void game_menu()
                     }
                 } break;
 
-
+            /// If the player gets board
             case 'b':
                 {
                     free(matrix);
-                    break;
+                    post_game();
+                    return;
                 } break;
         }
         if(player_poz_x==n-2&&player_poz_y==n-2)
@@ -339,6 +254,28 @@ void game_menu()
     }
 }
 
+/********************************************************
+*  Description: Prints the the LEADERBOAR              S *
+*********************************************************/
+void post_game()
+{
+    cleardevice();
+
+    outtextxy(100,100,player.name);
+    char no[3];
+    sprintf(no,"%d",(player.score-13)/2);
+    outtextxy(150,100,no);
+
+    selection:
+        if(getch()=='b')
+            return;
+        else
+            goto selection;
+}
+
+/********************************************************
+*  Description: Prints the of the player and the player *
+*********************************************************/
 void draw_path(int *matrix,int n,int x,int y,int cel_l,int cel_c)
 {
     /// TO DO GENERALIZE
@@ -442,4 +379,46 @@ void draw_maze(int *matrix,long n,int start_x,int start_y,int dim_cel,int show_c
         cel_l++;
         i+=2;
     }
+}
+
+
+/********************************************************
+*  Description: Compares the dimension of the matrix    *
+*               with the number of cells to show on the *
+*               x and y axes to know how to call the    *
+*               draw function for the maze              *
+*********************************************************/
+int dim_comparation(int dimension)
+{
+    if(dimension<=show_cel_no_x&&dimension<=show_cel_no_y)
+        return 0;
+    if(dimension<=show_cel_no_x&&dimension>show_cel_no_y)
+        return 1;
+    if(dimension>show_cel_no_x&&dimension<=show_cel_no_y)
+        return 2;
+    if(dimension>show_cel_no_x&&dimension>show_cel_no_y)
+        return 3;
+}
+
+/********************************************************
+*  Description: Prints the information about the player *
+*********************************************************/
+void print_header()
+{
+    cleardevice();
+
+    settextstyle(font_style,direction,font_size_int_med);
+    outtextxy(80,50,"LIVES");
+    outtextxy(80,80,"0");
+
+    outtextxy(220,50,"LEVEL");
+    char no[3];
+    sprintf(no,"%d",(player.score-13)/2);
+    outtextxy(220,80,no);
+
+    outtextxy(360,50,"MOVES");
+    outtextxy(360,80,"0");
+
+    outtextxy(500,50,"NAME");
+    outtextxy(500,80,player.name);
 }
