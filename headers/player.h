@@ -10,6 +10,7 @@ struct player_stats
     int hints;
 };
 
+extern void text (struct player_stats player);
 extern int move_up(int *matrix,int n,int a,int b);
 extern int move_left(int *matrix,int n,int a,int b);
 extern int move_down(int *matrix,int n,int a,int b);
