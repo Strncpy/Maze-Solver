@@ -142,7 +142,7 @@ void game_menu()
     int n;
     int *matrix;
 
-    player.score=15;
+    player.score=47;
     n=player.score;
     matrix=gen_mat(n);
     element_change_matrix(matrix,n,3,3,3);
@@ -153,7 +153,7 @@ void game_menu()
 
     while(player_poz_x!=n-2||player_poz_y!=n-2)
     {
-        dim_comp=dim_comparation(n);
+        dim_comp=dim_comparation(n-2);
         switch(dim_comp)
         {
             case 0:
@@ -326,13 +326,13 @@ void draw_maze(int *matrix,long n,int start_x,int start_y,int dim_cel,int show_c
         if(show_cel_no_x==n)
             line(start_x,start_y,(show_cel_no_y/2-1)*dim_cel+start_x,start_y);
         else
-            line(start_x,start_y,(show_cel_no_y/2)*dim_cel+start_x,start_y);
+            line(start_x,start_y,(show_cel_no_y/2-1)*dim_cel+start_x,start_y);
 
     if(cel_start_y==3)
         if(show_cel_no_y==n)
             line(start_x,start_y,start_x,(show_cel_no_x/2+1)*dim_cel+start_x);
         else
-            line(start_x,start_y,start_x,(show_cel_no_x/2+2)*dim_cel+start_x);
+            line(start_x,start_y,start_x,(show_cel_no_x/2+1)*dim_cel+start_x);
 
     int i=cel_start_x;
     int j=cel_start_y;
