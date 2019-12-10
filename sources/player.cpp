@@ -35,7 +35,7 @@ void text(struct player_stats player)
             i+=1;
         }
     }
-    if((fscanf(pf_ptr, "%s %d", nume, &scor) == 0)||(k==0))
+    if((fscanf(pf_ptr, "%s %d", nume, &scor) == 0)||((k==0)&&(i<10)))
         fprintf(temp_ptr, "%s %d\n", player.name, player.score);
     fclose(pf_ptr);
     fclose(temp_ptr);
