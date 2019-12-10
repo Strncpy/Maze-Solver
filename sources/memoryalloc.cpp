@@ -9,7 +9,7 @@
  is launched*/
 int *allocate_matrix (long n)
 {
-    int *matrix = (int*)malloc(pow(n,2) * sizeof(int));
+    int *matrix = (int*)malloc((n*n) * sizeof(int));
     return matrix;//
 }
 
@@ -18,7 +18,7 @@ int *allocate_matrix (long n)
 void dealoc_matrix(int *matrix)
 {
     if(matrix!=NULL)
-        free(matrix);  /* in this case is arr */
+        free(matrix);
 }
 
 /* returns a matrix element by its coordinates */
