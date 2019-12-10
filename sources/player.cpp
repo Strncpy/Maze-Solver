@@ -3,7 +3,6 @@
 #include "../headers/player.h"
 #include "../headers/mat_gen.h"
 #include "../headers/memoryalloc.h"
-#include "../headers/memoryalloc.h"
 
 void text(struct player_stats player)
 {
@@ -77,14 +76,20 @@ int move_right(int *matrix,int n,int a,int b)
 
 int tray(int *matrix,int n,int a,int b,int a1,int b1)
 {
+    //player.nr_moves+=1;
     if (get_matrix_element(matrix,n,a,b)==0)
     {
+        //z=0;
         element_change_matrix(matrix,n,a,b,3);
         element_change_matrix(matrix,n,a1,b1,2);
     }
     if (get_matrix_element(matrix,n,a,b)==2)
     {
+        //z+=1;
+        //if(z=2)
+            //player.lives-=1;
         element_change_matrix(matrix,n,a,b,3);
         element_change_matrix(matrix,n,a1,b1,0);
     }
+    return 0;//player.nr_moves, player.lives;
 }
