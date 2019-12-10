@@ -13,9 +13,9 @@ struct visited
 visited *vi;
 visited aux;
 
-int i,j,p,n;
+int i,j,p,n,z,h,r,fr,fd,ra;
 int N,V,S,E;
-int v[4],k=0,s,m;
+int v[4],k,s,m;
 int *matrix;
 
 void mat(int n)
@@ -45,41 +45,42 @@ int* matrix_s(int n)
     return matrix;
 }
 
-void first_step(int x,int y)
-{
-    i=x;
-    j=y;
-    element_change_matrix(matrix,n,i,j,0);
-    aux.x=i;
-    aux.y=j;
-    vi[k]=aux;
-    p=rand()%2;
-    if(p==0)
-    {
-        i+=2;
-        element_change_matrix( matrix,n,i,j,0);
-        element_change_matrix( matrix,n,i-1,j,0);
-        k++;
-        aux.x=i;
-        aux.y=j;
-        vi[k]=aux;
-    }
-    else
-    {
-        j+=2;
-        element_change_matrix( matrix,n,i,j,0);
-        element_change_matrix( matrix,n,i,j-1,0);
-        k++;
-        aux.x=i;
-        aux.y=j;
-        vi[k]=aux;
-    }
-}
-
 void path_an(int x,int y)
 {
     i=x;
     j=y;
+
+    if((i==3)&&(j==3)&&(z==0))
+    {
+        z=1;
+        ra=rand()% n + k-n/4;
+        i=vi[ra].x;
+        j=vi[ra].y;
+    }
+
+    if((i==n-2)&&(j<n-2)&&(fr==0)&&(z==1))
+    {
+        r=0;
+        for(h=j+2;h<n-2;h++)
+            r=r+get_matrix_element( matrix, n, i, h);
+        if(r==0)
+        {
+            element_change_matrix( matrix, n, i, j+1, 0);
+            fr+=1;
+        }
+    }
+
+    if((j==n-2)&&(i<n-2)&&(fd==0)&&(z==1))
+    {
+        r=0;
+        for(h=i+2;h<n-2;h++)
+            r=r+get_matrix_element( matrix, n, h, j);
+        if(r==0)
+        {
+            element_change_matrix( matrix, n, i+1, j, 0);
+            fd+=1;
+        }
+    }
 
     N=1;
     V=1;
@@ -189,13 +190,33 @@ void  mov_arb(int s)
 int* gen_mat(int dim)
 {
     n=dim;
-    k=0;
-    m=0;
     mat(n);
     matrix_s(n);
-    first_step(3,3);
-    while(!((i==3)&&(j==3)))
+    k=0;
+    m=0;
+    z=0;
+    fr=0;
+    fd=0;
+    i=n-2;
+    j=n-2;
+    element_change_matrix(matrix,n,i,j,0);
+    aux.x=i;
+    aux.y=j;
+    vi[k]=aux;
+    do
+    {
         path_an(i,j);
+    }
+    while(!((i==n-2)&&(j==n-2)));
     free(vi);
+
+    for(i=1;i<=n;i++)
+    {
+        for (j=1;j<=n;j++)
+            printf("%d ", get_matrix_element( matrix, n, i, j));
+    printf("\n");
+    }
+    printf("\n");
+
     return matrix;
 }
