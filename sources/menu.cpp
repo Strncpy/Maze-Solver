@@ -54,13 +54,13 @@ void main_menu()
     outtextxy(150,240,"1. Solve it");
 
     settextstyle(font_style,direction,font_size_int_med);
-    outtextxy(190,280,"2. Instructions");
+    outtextxy(150,280,"2. Instructions");
 
     settextstyle(font_style,direction,font_size_int_med);
-    outtextxy(230,320,"3. Credits");
+    outtextxy(150,320,"3. Credits");
 
     settextstyle(font_style,direction,font_size_int_med);
-    outtextxy(270,360,"b. Exit");
+    outtextxy(150,360,"b. Exit");
 
     printf("menu_select\n");
     char choise;
@@ -107,10 +107,23 @@ void instruction_menu()
     rectangle(285,235,335,285);
     outtextxy(300,245,"D");
 
-    outtextxy(130,380,"Your goal is to reach the bottom right of the maze.");
+    settextstyle(font_style,direction,font_size_int_med);
+    outtextxy(130,400,"Use the keys 'I', 'J', 'K', 'L' to visualize the maze.");
+
+    rectangle(220,440,270,490);
+    outtextxy(234,450,"I");
+
+    rectangle(175,495,225,545);
+    outtextxy(191,505,"J");
+    rectangle(230,495,280,545);
+    outtextxy(248,505,"K");
+    rectangle(285,495,335,545);
+    outtextxy(300,505,"L");
+
+    outtextxy(130,550,"Your goal is to reach the bottom right of the maze.");
 
     settextstyle(font_style,direction,font_size_small);
-    outtextxy(80,440,"Press 'B' to go back.");
+    outtextxy(80,580,"Press 'B' to go back.");
 
     selection:
         if(getch()=='b')
@@ -128,7 +141,7 @@ void credits_menu()
     cleardevice();
 
     settextstyle(font_style,direction,font_size_medium);
-    outtextxy(80,50,"Credits (Work in progress)");
+    outtextxy(80,50,"Credits");
 
     settextstyle(font_style,direction,font_size_int_med);
     outtextxy(130,130,"Project realized by:");

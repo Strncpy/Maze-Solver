@@ -13,7 +13,7 @@ void text(struct player_stats player)
     char nume[20];
     pf_ptr=fopen("players.txt", "a+");
     temp_ptr=fopen("temp.txt", "w+");
-    while(fscanf(pf_ptr, "%s %d", nume, &scor) > 0)
+    while(fscanf(pf_ptr, "%s %d\n", nume, &scor) > 0)
     {
         if(player.score>scor)
         {

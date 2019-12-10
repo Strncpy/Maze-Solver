@@ -1,0 +1,11 @@
+iubt 10
+iulius 7
+da 4
+d 4
+darius 4
+t 3
+nu 2
+e 2
+r 1
+back 1
+r 1

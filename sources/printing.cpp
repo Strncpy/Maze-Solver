@@ -142,7 +142,7 @@ void game_menu()
     int n;
     int *matrix;
 
-    player.score=47;
+    player.score=15;
     n=player.score;
     matrix=gen_mat(n);
     element_change_matrix(matrix,n,3,3,3);
@@ -261,11 +261,22 @@ void post_game()
 {
     cleardevice();
 
-    outtextxy(100,100,player.name);
+    /*outtextxy(100,100,player.name);
     char no[3];
     sprintf(no,"%d",(player.score-13)/2);
-    outtextxy(150,100,no);
+    outtextxy(150,100,no);*/
 
+    player.score=(player.score-13)/2;
+    text(player);
+
+    settextstyle(font_style,direction,font_size_medium);
+    setcolor(LIGHTMAGENTA);
+
+    rectangle(20,20,730,530);
+    rectangle(30,30,720,520);
+    outtextxy(350,110,"LEADERS BOARD");
+
+    setcolor(WHITE);
     selection:
         if(getch()=='b')
             return;
