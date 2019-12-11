@@ -1,8 +1,10 @@
 player 45
+tar 9
 darius 7
 try 7
 daius 7
 player 7
+fab 7
 pop 6
 rt 3
 da 1
