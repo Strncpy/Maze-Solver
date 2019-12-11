@@ -62,8 +62,6 @@ void start_menu()
     settextstyle(font_style,direction,font_size_large);
     outtextxy(80,50,"We dare you to solve it");
 
-
-
     settextstyle(font_style,direction,font_size_int_med);
     outtextxy(230,130,"Remember you only have");
     outtextxy(200,160,"a limited amount of lives.");
@@ -111,7 +109,13 @@ void start_menu()
     if(strcmp(name,"back")==0)
         return;
     else
-        game_menu();
+        if(strlen(name)>0)
+            game_menu();
+        else
+        {
+            start_menu();
+            return;
+        }
 }
 
 /********************************************************
@@ -127,7 +131,7 @@ void game_menu()
 
     setcolor(WHITE);
 
-    player.score=27;
+    player.score=15;
     n=player.score;
     player.lives=player.score+10;
     matrix=gen_mat(n);
@@ -275,64 +279,61 @@ void post_game()
 {
     cleardevice();
 
-    settextstyle(font_style,direction,font_size_large);
-    setcolor(LIGHTMAGENTA);
-
     player.score=(player.score-13)/2;
     text(player);
 
+    settextstyle(font_style,direction,font_size_large);
+    setcolor(LIGHTMAGENTA);
+
     rectangle(10,20,730, 530);
     rectangle(20, 30, 720, 520);
-    outtextxy(130,110,"LEADERS' BOARD");
+    outtextxy(130,110,"LEADERS BOARD");
+    settextstyle(font_style,0, font_size_medium);
+    outtextxy (250,170, "and their score");
 
+    settextstyle(font_style,0, font_size_small);
+    outtextxy (170,220, "Player's name:");
+    outtextxy (300,220,player.name);
 
-  static const char filename[] = "try_names";
-   FILE *file = fopen ( filename, "r" );
-   if (file != NULL)
-   {
-      char line [20];
-      while(fgets (line,sizeof line,file) != NULL) /* read a line */
-      {
-         fputs(line,stdout); /* write the line */
-      }
-      fclose(file);
-   }
-   else
-   {
-      outtextxy (400,400,"nope"); /* why didn't the file open? */
-   }
+    outtextxy (440,220, "Score:");
+    char score[4];
+    itoa(player.score,score,10);
+    outtextxy (500,220,score);
 
+    outtextxy (320,297, "Top 5");
 
-/*
-FILE* fp;
-char name[10];
+    settextstyle(font_style,0,font_size_small);
+    FILE* fp = fopen("players.txt", "r");
+    char name[10];
 
-fp = fopen("try_names", "r");
-
-
-if ( fp != NULL )
-{
-int i=0;
-while(fgets(name, 10, (FILE*) fp))
+    if ( fp != NULL )
     {
-      int y=300+i*10;
-    outtextxy(200,y,name);
-i++;
-}
-fclose ( fp );
-}
-else
-{
-  outtextxy(200,30,"nope");
-}
+        int i=0;
+        char index[3];
+        while(fgets(name, 255, (FILE*) fp)&&i<5)
+        {
+            itoa(i+1,index,10);
+            int y=330+i*30;
+            outtextxy(280,y,index);
+            outtextxy(290,y,".");
+            outtextxy(320,y,name);
+            i++;
+        }
+        fclose ( fp );
+    }
+    else
+    {
+        outtextxy(200,30,"nope");
+    }
 
-fclose(fp); */
+    fclose(fp);
+    setcolor(WHITE);
 
     selection:
-        if(getch()=='b')
-            return;
-        else
-            goto selection;
+    if(getch()=='b')
+        return;
+    else
+        goto selection;
 
 
 }

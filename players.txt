@@ -1,8 +1,7 @@
-player 45
-darius 7
-try 7
-daius 7
-player 7
-pop 6
-rt 3
-da 1
+elena 23
+darius 19
+fabian 18
+player 4
+q 3
+dar 2
+q 1
