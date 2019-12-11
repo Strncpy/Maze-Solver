@@ -58,7 +58,7 @@
 
 1575717353 c:\users\fabian\documents\github\maze-solver\headers\printing.h
 
-1576082609 source:c:\users\fabian\documents\github\maze-solver\sources\mat_gen.cpp
+1576099935 source:c:\users\fabian\documents\github\maze-solver\sources\mat_gen.cpp
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -69,7 +69,7 @@
 1574881997 c:\users\fabian\documents\github\maze-solver\headers\memoryalloc.h
 	<stdio.h>
 
-1576082609 c:\users\fabian\documents\github\maze-solver\headers\mat_gen.h
+1576100148 c:\users\fabian\documents\github\maze-solver\headers\mat_gen.h
 
 1576082609 source:c:\users\fabian\documents\github\maze-solver\sources\menu.cpp
 	<stdio.h>
