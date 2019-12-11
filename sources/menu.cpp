@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <graphics.h>
+#include <string.h>
 #include "../headers/menu.h"
 #include "../headers/printing.h"
 
@@ -44,23 +45,38 @@ void main_menu()
 {
     cleardevice();
 
+   int k,l,m;
+   line(0,0,750,0);
+   line (0,0,0,550);
+   line (750,0,750,550);
+   line (750,550,0,550);
+   for (k=0;k<=3000;k++)
+
+   { l=rand()%749;
+     m=rand()%550;
+     putpixel(l,m,CYAN);
+     putpixel (l+50,m+50,LIGHTMAGENTA);  //freaking stars;
+}
+
+
+
     settextstyle(font_style,direction,font_size_large);
     outtextxy(200,50,"Maze solver");
 
     settextstyle(font_style,direction,font_size_medium);
-    outtextxy(280,120,"Can you solve it?");
+    outtextxy(220,120,"Can you solve it?");
 
     settextstyle(font_style,direction,font_size_int_med);
-    outtextxy(150,240,"1. Solve it");
+    outtextxy(220,240,"1. Solve it");
 
     settextstyle(font_style,direction,font_size_int_med);
-    outtextxy(150,280,"2. Instructions");
+    outtextxy(220,280,"2. Instructions");
 
     settextstyle(font_style,direction,font_size_int_med);
-    outtextxy(150,320,"3. Credits");
+    outtextxy(220,320,"3. Credits");
 
     settextstyle(font_style,direction,font_size_int_med);
-    outtextxy(150,360,"b. Exit");
+    outtextxy(220,360,"b. Exit");
 
     printf("menu_select\n");
     char choise;
@@ -91,8 +107,9 @@ void instruction_menu()
     /// WORK IN PROGRESS
     cleardevice();
 
-    settextstyle(font_style,direction,font_size_medium);
-    outtextxy(80,50,"Instrction (Work in progress)");
+    settextstyle(font_style,direction,font_size_large);
+     setcolor(LIGHTBLUE);
+    outtextxy(80,50,"Instructions");
 
     settextstyle(font_style,direction,font_size_int_med);
     outtextxy(130,130,"Use the keys 'W', 'A', 'S', 'D' to move the player.");
@@ -108,17 +125,18 @@ void instruction_menu()
     outtextxy(300,245,"D");
 
     settextstyle(font_style,direction,font_size_int_med);
-    outtextxy(130,400,"Use the keys 'I', 'J', 'K', 'L' to visualize the maze.");
+    outtextxy(130,350,"Use the keys 'I', 'J', 'K', 'L' to visualize the maze.");
 
-    rectangle(220,440,270,490);
-    outtextxy(234,450,"I");
+    rectangle(220,400,270,450);
+    outtextxy(234,410,"I");
 
-    rectangle(175,495,225,545);
-    outtextxy(191,505,"J");
-    rectangle(230,495,280,545);
-    outtextxy(248,505,"K");
-    rectangle(285,495,335,545);
-    outtextxy(300,505,"L");
+    rectangle(175,455,225,505);
+    outtextxy(191,465,"J");
+    rectangle(230,455,280,505);
+    outtextxy(248,465,"K");
+    rectangle(285,455,335,505);
+    outtextxy(300,465,"L");
+
 
     outtextxy(130,550,"Your goal is to reach the bottom right of the maze.");
 
@@ -140,7 +158,8 @@ void credits_menu()
 {
     cleardevice();
 
-    settextstyle(font_style,direction,font_size_medium);
+    settextstyle(font_style,direction,font_size_large);
+    setcolor(LIGHTMAGENTA);
     outtextxy(80,50,"Credits");
 
     settextstyle(font_style,direction,font_size_int_med);
@@ -161,3 +180,4 @@ void credits_menu()
         else
             goto selection;
 }
+

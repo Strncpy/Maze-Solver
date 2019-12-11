@@ -12,7 +12,7 @@
 #include "../headers/memoryalloc.h"
 #include "../headers/mat_gen.h"
 #include "../headers/player.h"
-
+#include "../headers/solver.h"
 /********************************************************
 *  Description: Enum for maze elements                  *
 *********************************************************/
@@ -59,41 +59,24 @@ void start_menu()
 {
     cleardevice();
 
-    settextstyle(font_style,direction,font_size_medium);
-    outtextxy(80,50,"Solv it (WIP)");
+    settextstyle(font_style,direction,font_size_large);
+    outtextxy(80,50,"We dare you to solve it");
+
+
 
     settextstyle(font_style,direction,font_size_int_med);
-    rectangle(470,100,670,490);
-    outtextxy(520,110,"LEADER");
-    outtextxy(525,140,"BOARD");
+    outtextxy(230,130,"Remember you only have");
+    outtextxy(200,160,"a limited amount of lives.");
 
-    settextstyle(font_style,direction,font_size_small);
-    /// TEMPORARY
-    outtextxy(490,180,"1. elena");
-    outtextxy(490,210,"2. fabian");
-    outtextxy(490,240,"3. ");
-    outtextxy(490,270,"4. ");
-    outtextxy(490,300,"5. ");
-    outtextxy(490,330,"6. ");
-    outtextxy(490,360,"7. ");
-    outtextxy(490,390,"8. ");
-    outtextxy(490,420,"9. ");
-    outtextxy(490,450,"10.");
-    ///
+    outtextxy(230,200,"If you get stuck press");
+    outtextxy(200,230,"'H' to use a hint.");
 
-    settextstyle(font_style,direction,font_size_int_med);
-    outtextxy(130,130,"Remember you only have");
-    outtextxy(100,160,"a limited amount of lives.");
+    outtextxy(230,270,"Type 'back' and press");
+    outtextxy(200,300,"'TAB' if you want to go");
+    outtextxy(200,330,"back. Or type your name");
+    outtextxy(200,360,"and press 'TAB'.");
 
-    outtextxy(130,200,"If you get stuck press");
-    outtextxy(100,230,"'H' to use a hint.");
-
-    outtextxy(130,270,"Type 'back' and press");
-    outtextxy(100,300,"'TAB' if you want to go");
-    outtextxy(100,330,"back. Or type your name");
-    outtextxy(100,360,"and press 'TAB'.");
-
-    outtextxy(130,400,"Please input a name,");
+    outtextxy(230,400,"Please input a name,");
     outtextxy(160,430,"NAME: ");
 
     char c;
@@ -142,6 +125,8 @@ void game_menu()
     int n;
     int *matrix;
 
+    setcolor(WHITE);
+
     player.score=15;
     n=player.score;
     matrix=gen_mat(n);
@@ -153,7 +138,7 @@ void game_menu()
 
     while(player_poz_x!=n-2||player_poz_y!=n-2)
     {
-        dim_comp=dim_comparation(n-2);
+        dim_comp=dim_comparation(n);
         switch(dim_comp)
         {
             case 0:
@@ -233,6 +218,13 @@ void game_menu()
                     }
                 } break;
 
+            case 'h':
+                {
+                    init_dfs();
+                    dfs_algorithm(matrix,n);
+
+                } break;
+
             /// If the player gets board
             case 'b':
                 {
@@ -261,27 +253,63 @@ void post_game()
 {
     cleardevice();
 
-    /*outtextxy(100,100,player.name);
-    char no[3];
-    sprintf(no,"%d",(player.score-13)/2);
-    outtextxy(150,100,no);*/
-
-    player.score=(player.score-13)/2;
-    text(player);
-
-    settextstyle(font_style,direction,font_size_medium);
+    settextstyle(font_style,direction,font_size_large);
     setcolor(LIGHTMAGENTA);
 
-    rectangle(20,20,730,530);
-    rectangle(30,30,720,520);
-    outtextxy(350,110,"LEADERS BOARD");
+    rectangle(10,20,730, 530);
+    rectangle(20, 30, 720, 520);
+    outtextxy(130,110,"LEADERS' BOARD");
 
-    setcolor(WHITE);
+
+  static const char filename[] = "try_names";
+   FILE *file = fopen ( filename, "r" );
+   if (file != NULL)
+   {
+      char line [20];
+      while(fgets (line,sizeof line,file) != NULL) /* read a line */
+      {
+         fputs(line,stdout); /* write the line */
+      }
+      fclose(file);
+   }
+   else
+   {
+      outtextxy (400,400,"nope"); /* why didn't the file open? */
+   }
+
+
+/*
+FILE* fp;
+char name[10];
+
+fp = fopen("try_names", "r");
+
+
+if ( fp != NULL )
+{
+int i=0;
+while(fgets(name, 10, (FILE*) fp))
+    {
+      int y=300+i*10;
+    outtextxy(200,y,name);
+i++;
+}
+fclose ( fp );
+}
+else
+{
+  outtextxy(200,30,"nope");
+}
+
+fclose(fp); */
+
     selection:
         if(getch()=='b')
             return;
         else
             goto selection;
+
+
 }
 
 /********************************************************
@@ -337,13 +365,13 @@ void draw_maze(int *matrix,long n,int start_x,int start_y,int dim_cel,int show_c
         if(show_cel_no_x==n)
             line(start_x,start_y,(show_cel_no_y/2-1)*dim_cel+start_x,start_y);
         else
-            line(start_x,start_y,(show_cel_no_y/2-1)*dim_cel+start_x,start_y);
+            line(start_x,start_y,(show_cel_no_y/2)*dim_cel+start_x,start_y);
 
     if(cel_start_y==3)
         if(show_cel_no_y==n)
             line(start_x,start_y,start_x,(show_cel_no_x/2+1)*dim_cel+start_x);
         else
-            line(start_x,start_y,start_x,(show_cel_no_x/2+1)*dim_cel+start_x);
+            line(start_x,start_y,start_x,(show_cel_no_x/2+2)*dim_cel+start_x);
 
     int i=cel_start_x;
     int j=cel_start_y;
@@ -422,14 +450,11 @@ void print_header()
     outtextxy(80,50,"LIVES");
     outtextxy(80,80,"0");
 
-    outtextxy(220,50,"LEVEL");
+    outtextxy(80,50,"LEVEL");
     char no[3];
     sprintf(no,"%d",(player.score-13)/2);
-    outtextxy(220,80,no);
+    outtextxy(80,80,no);
 
-    outtextxy(360,50,"MOVES");
-    outtextxy(360,80,"0");
-
-    outtextxy(500,50,"NAME");
-    outtextxy(500,80,player.name);
+    outtextxy(260,50,"NAME");
+    outtextxy(260,80,player.name);
 }

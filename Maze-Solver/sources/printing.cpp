@@ -125,6 +125,8 @@ void game_menu()
     int n;
     int *matrix;
 
+    setcolor(WHITE);
+
     player.score=15;
     n=player.score;
     matrix=gen_mat(n);

@@ -210,13 +210,13 @@ int* gen_mat(int dim)
     while(!((i==n-2)&&(j==n-2)));
     free(vi);
 
-    for(i=1;i<=n;i++)
+    /*or(i=1;i<=n;i++)
     {
         for (j=1;j<=n;j++)
             printf("%d ", get_matrix_element( matrix, n, i, j));
     printf("\n");
     }
-    printf("\n");
+    printf("\n");*/
 
     return matrix;
 }
