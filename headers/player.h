@@ -15,5 +15,5 @@ extern int move_up(int *matrix,int n,int a,int b);
 extern int move_left(int *matrix,int n,int a,int b);
 extern int move_down(int *matrix,int n,int a,int b);
 extern int move_right(int *matrix,int n,int a,int b);
-extern int tray(int *matrix,int n,int a,int b,int a1,int b1,struct player_stats *player);
+extern void tray(int *matrix,int n,int a,int b,int a1,int b1,struct player_stats *player);
 #endif // PLAYER_H_INCLUDED
