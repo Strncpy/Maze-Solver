@@ -48,7 +48,7 @@
 
 1576050686 d:\proiecte\poli\cp\maze-solver\headers\mat_gen.h
 
-1575717353 source:c:\users\fabian\documents\github\maze-solver\main.cpp
+1576082609 source:c:\users\fabian\documents\github\maze-solver\main.cpp
 	<stdio.h>
 	<graphics.h>
 	"headers/menu.h"
@@ -58,7 +58,7 @@
 
 1575717353 c:\users\fabian\documents\github\maze-solver\headers\printing.h
 
-1575717353 source:c:\users\fabian\documents\github\maze-solver\sources\mat_gen.cpp
+1576099935 source:c:\users\fabian\documents\github\maze-solver\sources\mat_gen.cpp
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -69,16 +69,17 @@
 1574881997 c:\users\fabian\documents\github\maze-solver\headers\memoryalloc.h
 	<stdio.h>
 
-1575717353 c:\users\fabian\documents\github\maze-solver\headers\mat_gen.h
+1576101815 c:\users\fabian\documents\github\maze-solver\headers\mat_gen.h
 
-1575378462 source:c:\users\fabian\documents\github\maze-solver\sources\menu.cpp
+1576082609 source:c:\users\fabian\documents\github\maze-solver\sources\menu.cpp
 	<stdio.h>
 	<stdlib.h>
 	<graphics.h>
+	<string.h>
 	"../headers/menu.h"
 	"../headers/printing.h"
 
-1575717353 source:c:\users\fabian\documents\github\maze-solver\sources\printing.cpp
+1576082609 source:c:\users\fabian\documents\github\maze-solver\sources\printing.cpp
 	<stdio.h>
 	<stdlib.h>
 	"../graphics.h"
@@ -87,6 +88,7 @@
 	"../headers/memoryalloc.h"
 	"../headers/mat_gen.h"
 	"../headers/player.h"
+	"../headers/solver.h"
 
 1575550574 source:c:\users\fabian\documents\github\maze-solver\sources\memoryalloc.cpp
 	<stdlib.h>
@@ -95,7 +97,7 @@
 	<math.h>
 	"../headers/memoryalloc.h"
 
-1575970594 source:c:\users\fabian\documents\github\maze-solver\sources\player.cpp
+1576101377 source:c:\users\fabian\documents\github\maze-solver\sources\player.cpp
 	<stdio.h>
 	<stdlib.h>
 	"../headers/player.h"
@@ -103,7 +105,7 @@
 	"../headers/memoryalloc.h"
 	"../headers/memoryalloc.h"
 
-1575832245 c:\users\fabian\documents\github\maze-solver\headers\player.h
+1576101673 c:\users\fabian\documents\github\maze-solver\headers\player.h
 
 1574424167 c:\users\fabian\documents\github\maze-solver\graphics.h
 	<windows.h>
@@ -333,6 +335,14 @@
 1576050686 d:\proiecte\poli\cp\maze-solver\headers\solver.h
 
 1576050686 source:d:\proiecte\poli\cp\maze-solver\sources\solver.cpp
+	<stdio.h>
+	<stdlib.h>
+	"../headers/solver.h"
+	"../headers/memoryalloc.h"
+
+1576082609 c:\users\fabian\documents\github\maze-solver\headers\solver.h
+
+1576082609 source:c:\users\fabian\documents\github\maze-solver\sources\solver.cpp
 	<stdio.h>
 	<stdlib.h>
 	"../headers/solver.h"
