@@ -1,0 +1,72 @@
+#include "MEMORYALLOc.h"  /*made this module to be in charge with all the memory changes
+                         and it will help to manipulate all the necessary
+                          matrix elements, stack, counters, etc
+                          needs to be finished tho
+                          
+                   */
+//////////////////////
+
+ /*  alloc memory function to use whenever a new level (size of matrix) 
+  is launched*/
+ void allocate_matrix (long n)
+ {   
+     
+     int *arr = (int *)malloc(pow(n,2) * sizeof(int)); // 
+ }
+ 
+ /////////////////////////////////////////////////////////
+ 
+ /*dealoc memory for the matrix when level is completed or when the hint is done  */
+ 
+  void dealoc_matrix (int n)
+     {
+        free (n);  /* ? ? ? in this case is arr */
+     }
+  
+//////////////////////////////////////////////////////////
+  /*highscores + player's names*/ 
+ 
+
+    FILE *fplayers;
+    fplayers = fopen("dahplayers.txt", "a+");
+    fprintf (fplayers, &player) ;                   /*here we write the name of the player which 
+                                                   should be a pointer so we add in the file
+                                                   the value of the address aka the freaking name of
+                                                   the player . complete with the highscores, same code but 
+                                                   they have to have a corespondation*/
+    
+    fclose(fplayers);
+    
+    
+ /*stackul cu elementele matricii vizitate*/
+ 
+ 
+ int top = -1;   //it should be declared globally
+//////////// 
+
+
+/////////////
+ int pop() {
+   int visited_element;
+      visited_element = stack[top];
+      top = top - 1;   
+      return visited_element;
+ 
+ }
+
+///////////////
+// don't know if here we should include some tests such as if the stack is overflowed but that's propbably not the case here
+
+void push(int visited_element) {
+      top = top + 1;   
+      stack[top] = visited_element;
+      
+}
+ 
+
+////////////////////////////////////////
+////////////////////////////////////////
+ int return_matrix_element (int i, int j) // returns a matrix element by its coordinates
+            {
+               return a[i][j];
+            }
