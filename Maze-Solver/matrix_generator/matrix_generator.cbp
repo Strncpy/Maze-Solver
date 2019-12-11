@@ -2,12 +2,12 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="Maze Solver" />
+		<Option title="matrix_generator" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/Maze Solver" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug/matrix_generator" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -16,7 +16,7 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/Maze Solver" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Release/matrix_generator" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -32,27 +32,21 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="graphics.h" />
-		<Unit filename="headers/mat_gen.h" />
-		<Unit filename="headers/memoryalloc.h" />
-		<Unit filename="headers/menu.h" />
-		<Unit filename="headers/player.h" />
-		<Unit filename="headers/printing.h" />
-		<Unit filename="headers/solver.h" />
-		<Unit filename="main.cpp" />
-		<Unit filename="sources/mat_gen.cpp" />
-		<Unit filename="sources/memoryalloc.cpp" />
-		<Unit filename="sources/menu.cpp" />
-		<Unit filename="sources/player.cpp" />
-		<Unit filename="sources/printing.cpp" />
-		<Unit filename="sources/solver.cpp" />
-		<Unit filename="try_names">
+		<Unit filename="../../../../Desktop/Facultate/Computer Programming/matrix_modules/mat_gen.cpp">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="../headers/matrix_gen">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../sources/matrix_gen">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
 			<debugger />
+			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

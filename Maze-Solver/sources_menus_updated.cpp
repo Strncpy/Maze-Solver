@@ -45,21 +45,6 @@ void main_menu()
 {
     cleardevice();
 
-   int k,l,m;
-   line(0,0,750,0);
-   line (0,0,0,550);
-   line (750,0,750,550);
-   line (750,550,0,550);
-   for (k=0;k<=3000;k++)
-
-   { l=rand()%749;
-     m=rand()%550;
-     putpixel(l,m,CYAN);
-     putpixel (l+50,m+50,LIGHTMAGENTA);  //freaking stars;
-}
-
-
-
     settextstyle(font_style,direction,font_size_large);
     outtextxy(200,50,"Maze solver");
 
@@ -107,9 +92,8 @@ void instruction_menu()
     /// WORK IN PROGRESS
     cleardevice();
 
-    settextstyle(font_style,direction,font_size_large);
-     setcolor(LIGHTBLUE);
-    outtextxy(80,50,"Instructions");
+    settextstyle(font_style,direction,font_size_medium);
+    outtextxy(80,50,"Instructions (Work in progress)");
 
     settextstyle(font_style,direction,font_size_int_med);
     outtextxy(130,130,"Use the keys 'W', 'A', 'S', 'D' to move the player.");
@@ -123,19 +107,19 @@ void instruction_menu()
     outtextxy(248,245,"S");
     rectangle(285,235,335,285);
     outtextxy(300,245,"D");
+    
+    ettextstyle(font_style,direction,font_size_int_med);
+    outtextxy(130,130,"Use the keys 'I', 'J', 'K', 'L' to visualize the maze.");
 
-    settextstyle(font_style,direction,font_size_int_med);
-    outtextxy(130,350,"Use the keys 'I', 'J', 'K', 'L' to visualize the maze.");
+    rectangle(220,440,270,490);
+    outtextxy(234,450,"I");
 
-    rectangle(220,400,270,450);
-    outtextxy(234,410,"I");
-
-    rectangle(175,455,225,505);
-    outtextxy(191,465,"J");
-    rectangle(230,455,280,505);
-    outtextxy(248,465,"K");
-    rectangle(285,455,335,505);
-    outtextxy(300,465,"L");
+    rectangle(175,495,225,545);
+    outtextxy(191,505,"J");
+    rectangle(230,495,280,545);
+    outtextxy(248,505,"K");
+    rectangle(285,495,335,545);
+    outtextxy(300,505,"L");
 
 
     outtextxy(130,550,"Your goal is to reach the bottom right of the maze.");
@@ -158,9 +142,8 @@ void credits_menu()
 {
     cleardevice();
 
-    settextstyle(font_style,direction,font_size_large);
-    setcolor(LIGHTMAGENTA);
-    outtextxy(80,50,"Credits");
+    settextstyle(font_style,direction,font_size_medium);
+    outtextxy(80,50,"Credits (Work in progress)");
 
     settextstyle(font_style,direction,font_size_int_med);
     outtextxy(130,130,"Project realized by:");
@@ -181,3 +164,59 @@ void credits_menu()
             goto selection;
 }
 
+
+
+void leaders_menu()
+{
+    cleardevice(); 
+    
+    settextstyle(font_style,direction,font_size_int_large);
+    setcolor("LIGHTMAGENTA");
+
+   rectangle(int 20, int 20, int 730, int 530);
+   rectangle(int 30, int 30, int 720, int 520);
+   outtextxy(350,110,"LEADERS' BOARD");
+    
+    
+    settextstyle(font_style,direction,font_size_small);
+    /// TEMPORARY
+///////
+
+    FILE *fp=fopen("names_players.txt", "r");  /* or how the file is named */ 
+                                               /* Open the file for reading */
+    char outtextxy_learders(int *fp, int nr) ;                                         
+    int nr=1;
+    char outext_players[0];
+    while (nr<=10)
+    {
+    itoa(nr,char index_player[2],10); 
+    const char point = '.';
+    char outext_players = strncat(index_player, &point,18);
+    char outext_players = strncat(outext_players, outtextxy_learders,18);
+    outtextxy(200,(200+10*nr),outext_players);
+    nr++;
+    }
+    
+    
+   ///////////////////////////////////////////////////// 
+        char outtextxy_learders(int *fp, int nr);   
+    {
+        FILE *fp=fopen("names_players.txt", "r"); 
+        /* or how the file is named */ 
+        /* Open the file for reading */
+        if (fp==NULL)
+    {
+        exit(0);
+    }
+        if ( fp != NULL )
+    {
+        char line[15]; /* or other  maximum name size, */
+        while (fgets(line, sizeof line, fp) != NULL) /* read a line from the file with names */
+        {
+            return fgets(line, sizeof line, fp);
+        fclose(file);
+        }
+    }
+    }
+    getch();
+    if (getch()=='e')   //exit the whole project;
