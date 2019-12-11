@@ -181,6 +181,9 @@
 	<limits.h>
 	<sstream>
 
+
+1575994337 source:c:\users\elena\desktop\maze\maze-solver\main.cpp
+
 1576019730 source:c:\users\elena\desktop\maze\maze-solver\main.cpp
 	<stdio.h>
 	<graphics.h>
@@ -210,6 +213,9 @@
 	<stack>
 	<math.h>
 	"../headers/memoryalloc.h"
+
+
+1575994316 source:c:\users\elena\desktop\maze\maze-solver\sources\menu.cpp
 
 1576021710 source:c:\users\elena\desktop\maze\maze-solver\sources\menu.cpp
 	<stdio.h>
@@ -246,6 +252,11 @@
 	<sstream>
 
 1575999392 c:\users\elena\desktop\maze\maze-solver\headers\solver.h
+
+
+1575994316 source:c:\users\elena\desktop\maze\maze-solver\sources\player.cpp
+	<stdio.h>
+	<stdlib.h>
 
 1575999440 source:c:\users\elena\desktop\maze\maze-solver\sources\solver.cpp
 	<stdio.h>
@@ -299,9 +310,15 @@
 	"../headers/memoryalloc.h"
 	"../headers/memoryalloc.h"
 
+
+1575994316 c:\users\elena\desktop\maze\maze-solver\headers\player.h
+
+1575994316 source:c:\users\elena\desktop\maze\maze-solver\sources\printing.cpp
+
 1576050686 d:\proiecte\poli\cp\maze-solver\maze-solver\headers\player.h
 
 1576072579 source:d:\proiecte\poli\cp\maze-solver\maze-solver\sources\printing.cpp
+
 	<stdio.h>
 	<stdlib.h>
 	"../graphics.h"
@@ -310,6 +327,13 @@
 	"../headers/memoryalloc.h"
 	"../headers/mat_gen.h"
 	"../headers/player.h"
+
+
+1575994316 c:\users\elena\desktop\maze\maze-solver\graphics.h
+	<windows.h>
+	<limits.h>
+	<sstream>
+
 	"../headers/solver.h"
 
 1576050686 d:\proiecte\poli\cp\maze-solver\maze-solver\graphics.h
