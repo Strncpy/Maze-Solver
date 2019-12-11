@@ -63,7 +63,7 @@ void search_and_move (int i,int j) //searches for neighbors of 0 and moves in th
 {
     if (get_matrix_element(matrix_dfs,dim,i+1,j)==0) //if down is o
     {
-        //element_change_matrix(matrix_dfs,n_dfs,i,j,3);
+        element_change_matrix(matrix_dfs,n_dfs,i,j,4);
         push(i,j);
         i=i+1;
         search_and_move(i,j);
@@ -71,21 +71,21 @@ void search_and_move (int i,int j) //searches for neighbors of 0 and moves in th
 
     else if (get_matrix_element(matrix_dfs,dim,i,j+1)==0)  //if right is 0
     {
-        //element_change_matrix(matrix_dfs,n_dfs,i,j,3);
+        element_change_matrix(matrix_dfs,n_dfs,i,j,4);
         push(i,j);  //this freaking 'n' needs some damn definition and see if it changes, as wanted, its value
         j=j+1;
         search_and_move(i,j);
     }
     else  if (get_matrix_element(matrix_dfs,dim,i-1,j)==0) //if up is0
     {
-        //element_change_matrix(matrix_dfs,n_dfs,i,j,3);
+        element_change_matrix(matrix_dfs,n_dfs,i,j,4);
         push(i,j);
         i=i-1;
         search_and_move(i,j);
     }
     else if (get_matrix_element(matrix_dfs,dim,i,j-1)==0) //if left is 0
     {
-        //element_change_matrix(matrix_dfs,n_dfs,i,j,3);
+        element_change_matrix(matrix_dfs,n_dfs,i,j,4);
         push(i,j);
         j=j-1;
         search_and_move(i,j);
