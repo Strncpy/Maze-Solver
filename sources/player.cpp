@@ -75,15 +75,20 @@ int move_right(int *matrix,int n,int a,int b)
         return 0;
 }
 
-int tray(int *matrix,int n,int a,int b,int a1,int b1,struct player_stats *player)
+void tray(int *matrix,int n,int a,int b,int a1,int b1,struct player_stats *player)
 {
+    player->nr_moves++;
+    int z;
     if (get_matrix_element(matrix,n,a,b)==0)
     {
+        z=0;
         element_change_matrix(matrix,n,a,b,3);
         element_change_matrix(matrix,n,a1,b1,2);
     }
     if (get_matrix_element(matrix,n,a,b)==2)
     {
+        z+=1;
+        if(z==2)
         player->lives--;
         element_change_matrix(matrix,n,a,b,3);
         element_change_matrix(matrix,n,a1,b1,0);
