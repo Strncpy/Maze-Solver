@@ -127,8 +127,9 @@ void game_menu()
 
     setcolor(WHITE);
 
-    player.score=15;
+    player.score=27;
     n=player.score;
+    player.lives=player.score+10;
     matrix=gen_mat(n);
     element_change_matrix(matrix,n,3,3,3);
 
@@ -188,7 +189,12 @@ void game_menu()
                 {
                     if(move_left(matrix,n,player_poz_x,player_poz_y))
                     {
-                        tray(matrix,n,player_poz_x,player_poz_y-2,player_poz_x,player_poz_y);
+                        tray(matrix,n,player_poz_x,player_poz_y-2,player_poz_x,player_poz_y,&player);
+                        if(player.lives==0)
+                        {
+                            post_game();
+                            return;
+                        }
                         player_poz_y-=2;
                     }
 
@@ -197,7 +203,12 @@ void game_menu()
                 {
                     if(move_right(matrix,n,player_poz_x,player_poz_y))
                     {
-                        tray(matrix,n,player_poz_x,player_poz_y+2,player_poz_x,player_poz_y);
+                        tray(matrix,n,player_poz_x,player_poz_y+2,player_poz_x,player_poz_y,&player);
+                        if(player.lives==0)
+                        {
+                            post_game();
+                            return;
+                        }
                         player_poz_y+=2;
                     }
                 } break;
@@ -205,7 +216,12 @@ void game_menu()
                 {
                     if(move_down(matrix,n,player_poz_x,player_poz_y))
                     {
-                        tray(matrix,n,player_poz_x+2,player_poz_y,player_poz_x,player_poz_y);
+                        tray(matrix,n,player_poz_x+2,player_poz_y,player_poz_x,player_poz_y,&player);
+                        if(player.lives==0)
+                        {
+                            post_game();
+                            return;
+                        }
                         player_poz_x+=2;
                     }
                 } break;
@@ -213,7 +229,12 @@ void game_menu()
                 {
                     if(move_up(matrix,n,player_poz_x,player_poz_y))
                     {
-                        tray(matrix,n,player_poz_x-2,player_poz_y,player_poz_x,player_poz_y);
+                        tray(matrix,n,player_poz_x-2,player_poz_y,player_poz_x,player_poz_y,&player);
+                        if(player.lives==0)
+                        {
+                            post_game();
+                            return;
+                        }
                         player_poz_x-=2;
                     }
                 } break;
@@ -240,6 +261,7 @@ void game_menu()
             dealoc_matrix(matrix);
             matrix=gen_mat(n);
             element_change_matrix(matrix,n,3,3,3);
+            player.lives=player.score+10;
             player_poz_x=3;
             player_poz_y=3;
         }
@@ -255,6 +277,9 @@ void post_game()
 
     settextstyle(font_style,direction,font_size_large);
     setcolor(LIGHTMAGENTA);
+
+    player.score=(player.score-13)/2;
+    text(player);
 
     rectangle(10,20,730, 530);
     rectangle(20, 30, 720, 520);
@@ -447,8 +472,6 @@ void print_header()
     cleardevice();
 
     settextstyle(font_style,direction,font_size_int_med);
-    outtextxy(80,50,"LIVES");
-    outtextxy(80,80,"0");
 
     outtextxy(80,50,"LEVEL");
     char no[3];
@@ -457,4 +480,9 @@ void print_header()
 
     outtextxy(260,50,"NAME");
     outtextxy(260,80,player.name);
+
+    outtextxy(440,50,"LIVES");
+    char health[3];
+    sprintf(health,"%d",player.lives);
+    outtextxy(440,80,health);
 }

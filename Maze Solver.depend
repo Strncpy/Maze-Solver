@@ -1,20 +1,21 @@
 # depslib dependency file v1.0
-1575644238 source:d:\proiecte\poli\cp\maze-solver\main.cpp
+1576050686 source:d:\proiecte\poli\cp\maze-solver\main.cpp
 	<stdio.h>
 	<graphics.h>
 	"headers/menu.h"
 	"headers/printing.h"
 
-1574809597 d:\proiecte\poli\cp\maze-solver\headers\menu.h
+1576050686 d:\proiecte\poli\cp\maze-solver\headers\menu.h
 
-1575039540 source:d:\proiecte\poli\cp\maze-solver\sources\menu.cpp
+1576050686 source:d:\proiecte\poli\cp\maze-solver\sources\menu.cpp
 	<stdio.h>
 	<stdlib.h>
 	<graphics.h>
+	<string.h>
 	"../headers/menu.h"
 	"../headers/printing.h"
 
-1575645787 source:d:\proiecte\poli\cp\maze-solver\sources\printing.cpp
+1576075465 source:d:\proiecte\poli\cp\maze-solver\sources\printing.cpp
 	<stdio.h>
 	<stdlib.h>
 	"../graphics.h"
@@ -23,20 +24,21 @@
 	"../headers/memoryalloc.h"
 	"../headers/mat_gen.h"
 	"../headers/player.h"
+	"../headers/solver.h"
 
-1575645384 d:\proiecte\poli\cp\maze-solver\headers\printing.h
+1576050686 d:\proiecte\poli\cp\maze-solver\headers\printing.h
 
-1575504912 source:d:\proiecte\poli\cp\maze-solver\sources\memoryalloc.cpp
+1576050686 source:d:\proiecte\poli\cp\maze-solver\sources\memoryalloc.cpp
 	<stdlib.h>
 	<stdio.h>
 	<stack>
 	<math.h>
 	"../headers/memoryalloc.h"
 
-1575500007 d:\proiecte\poli\cp\maze-solver\headers\memoryalloc.h
+1576050686 d:\proiecte\poli\cp\maze-solver\headers\memoryalloc.h
 	<stdio.h>
 
-1575643671 source:d:\proiecte\poli\cp\maze-solver\sources\mat_gen.cpp
+1576072701 source:d:\proiecte\poli\cp\maze-solver\sources\mat_gen.cpp
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -44,7 +46,7 @@
 	"../headers/mat_gen.h"
 	"../headers/printing.h"
 
-1575494862 d:\proiecte\poli\cp\maze-solver\headers\mat_gen.h
+1576050686 d:\proiecte\poli\cp\maze-solver\headers\mat_gen.h
 
 1575717353 source:c:\users\fabian\documents\github\maze-solver\main.cpp
 	<stdio.h>
@@ -108,7 +110,7 @@
 	<limits.h>
 	<sstream>
 
-1575497185 source:d:\proiecte\poli\cp\maze-solver\sources\player.cpp
+1576074559 source:d:\proiecte\poli\cp\maze-solver\sources\player.cpp
 	<stdio.h>
 	<stdlib.h>
 	"../headers/player.h"
@@ -116,9 +118,9 @@
 	"../headers/memoryalloc.h"
 	"../headers/memoryalloc.h"
 
-1575645493 d:\proiecte\poli\cp\maze-solver\headers\player.h
+1576074581 d:\proiecte\poli\cp\maze-solver\headers\player.h
 
-1398756684 d:\proiecte\poli\cp\maze-solver\graphics.h
+1576050686 d:\proiecte\poli\cp\maze-solver\graphics.h
 	<windows.h>
 	<limits.h>
 	<sstream>
@@ -318,6 +320,14 @@
 1576050686 d:\proiecte\poli\cp\maze-solver\maze-solver\headers\solver.h
 
 1576050686 source:d:\proiecte\poli\cp\maze-solver\maze-solver\sources\solver.cpp
+	<stdio.h>
+	<stdlib.h>
+	"../headers/solver.h"
+	"../headers/memoryalloc.h"
+
+1576050686 d:\proiecte\poli\cp\maze-solver\headers\solver.h
+
+1576050686 source:d:\proiecte\poli\cp\maze-solver\sources\solver.cpp
 	<stdio.h>
 	<stdlib.h>
 	"../headers/solver.h"
