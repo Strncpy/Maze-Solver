@@ -14,12 +14,8 @@
 
 int main()
 {
-    //printf("Work in progres.");
     init_window();
     main_menu();
-    //game_menu();
-    //printf
-    //jhgfd
     closegraph();
     return 0;
 }

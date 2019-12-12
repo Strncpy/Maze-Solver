@@ -1,7 +1,10 @@
 elena 23
 darius 19
 fabian 18
+y 10
+y 9
+man 6
 player 4
 q 3
 dar 2
-q 1
+d 2

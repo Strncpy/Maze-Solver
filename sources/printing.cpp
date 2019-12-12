@@ -133,7 +133,7 @@ void game_menu()
 
     player.score=15;
     n=player.score;
-    player.lives=player.score+10;
+    player.lives=15;
     matrix=gen_mat(n);
     element_change_matrix(matrix,n,3,3,3);
 
@@ -265,7 +265,8 @@ void game_menu()
             dealoc_matrix(matrix);
             matrix=gen_mat(n);
             element_change_matrix(matrix,n,3,3,3);
-            player.lives=player.score+10;
+            if((player.score-13)/2%10==0)
+                player.lives+=10;
             player_poz_x=3;
             player_poz_y=3;
         }

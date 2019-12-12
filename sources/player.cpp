@@ -5,6 +5,7 @@
 #include "../headers/memoryalloc.h"
 #include "../headers/memoryalloc.h"
 
+int moves;
 
 //this function makes the list of first 10 players ordered by score into a txt file//
 void text(struct player_stats player)                                              //
@@ -90,19 +91,18 @@ int move_right(int *matrix,int n,int a,int b)                                   
 //this function is responsible with keeping the track of the tray, nr of moves and lives of the player//
 void tray(int *matrix,int n,int a,int b,int a1,int b1,struct player_stats *player)                    //
 {                                                                                                     //
-    player->nr_moves++;                                                                               //
-    int z;                                                                                            //
+    player->nr_moves++;                                                                               //                                                                                           //
     if (get_matrix_element(matrix,n,a,b)==0)                                                          //
     {                                                                                                 //
-        z=0;                                                                                          //
+        moves=0;                                                                                      //
         element_change_matrix(matrix,n,a,b,3);                                                        //
         element_change_matrix(matrix,n,a1,b1,2);                                                      //
     }                                                                                                 //
     if (get_matrix_element(matrix,n,a,b)==2)                                                          //
     {                                                                                                 //
-        z+=1;                                                                                         //
-        if(z==2)                                                                                      //
-        player->lives--;                                                                              //
+        moves+=1;                                                                                     //
+         if(moves==2)                                                                                  //
+            player->lives--;                                                                          //
         element_change_matrix(matrix,n,a,b,3);                                                        //
         element_change_matrix(matrix,n,a1,b1,0);                                                      //
     }                                                                                                 //
