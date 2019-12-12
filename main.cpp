@@ -1,7 +1,7 @@
 /***************************************************
  *  Project: Maze Solver                           *
  *  Authors: Man N. Darius,                        *
- *           Pacuraru L. Fabin Virgil,             *
+ *           Pacuraru L. Fabian Virgil,            *
  *           Zah D. Elena                          *
  *  Description: The project is a maze generation  *
  *               and solver.                       *
