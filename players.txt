@@ -1,8 +1,5 @@
 elena 12
 darius 10
 fabian 8
-q 6
 man 5
-q 5
-2 4
-player 2
+zah 3

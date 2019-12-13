@@ -164,7 +164,7 @@ void credits_menu()
     outtextxy(130,130,"Project realized by:");
 
     outtextxy(170,160,"Man N. Darius,");
-    outtextxy(170,190,"Pacuraru L. Fabin Virgil,");
+    outtextxy(170,190,"Pacuraru L. Fabian Virgil,");
     outtextxy(170,220,"Zah D. Elena");
 
     outtextxy(130,280,"Technical University of Cluj-Napoca.");
