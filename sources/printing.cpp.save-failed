@@ -131,7 +131,6 @@ void game_menu()
 
     setcolor(WHITE);
 
-    player.hints=0;
     player.score=15;
     n=player.score;
     player.lives=15;
@@ -168,7 +167,6 @@ void game_menu()
                     draw_maze(matrix,n,start_x,start_y,dim_cel,show_cel_no_x,show_cel_no_y,cel_start_x,cel_start_y);
                 } break;
         }
-
         choise=getch();
         switch(choise)
         {
@@ -193,7 +191,7 @@ void game_menu()
             /// Player movement
             case 'a':
                 {
-                    if(move_left(matrix,n,player_poz_x,player_poz_y)&&player.hints!=1)
+                    if(move_left(matrix,n,player_poz_x,player_poz_y))
                     {
                         tray(matrix,n,player_poz_x,player_poz_y-2,player_poz_x,player_poz_y,&player);
                         if(player.lives==0)
@@ -207,7 +205,7 @@ void game_menu()
                 } break;
             case 'd':
                 {
-                    if(move_right(matrix,n,player_poz_x,player_poz_y)&&player.hints!=1)
+                    if(move_right(matrix,n,player_poz_x,player_poz_y))
                     {
                         tray(matrix,n,player_poz_x,player_poz_y+2,player_poz_x,player_poz_y,&player);
                         if(player.lives==0)
@@ -220,7 +218,7 @@ void game_menu()
                 } break;
             case 's':
                 {
-                    if(move_down(matrix,n,player_poz_x,player_poz_y)&&player.hints!=1)
+                    if(move_down(matrix,n,player_poz_x,player_poz_y))
                     {
                         tray(matrix,n,player_poz_x+2,player_poz_y,player_poz_x,player_poz_y,&player);
                         if(player.lives==0)
@@ -233,7 +231,7 @@ void game_menu()
                 } break;
             case 'w':
                 {
-                    if(move_up(matrix,n,player_poz_x,player_poz_y)&&player.hints!=1)
+                    if(move_up(matrix,n,player_poz_x,player_poz_y))
                     {
                         tray(matrix,n,player_poz_x-2,player_poz_y,player_poz_x,player_poz_y,&player);
                         if(player.lives==0)
@@ -247,21 +245,9 @@ void game_menu()
 
             case 'h':
                 {
-                    if(player.hints==0)
-                    {
-                        dfs_algorithm(matrix,n);
-                        player.hints=1;
-                    }
-                    else
-                    {
-                        if(player.hints==1)
-                        {
-                            player.hints=2;
-                            player_poz_x=n-2;
-                            player_poz_y=n-2;
-                            goto gata;
-                        }
-                    }
+                    //init_dfs();
+                    //dfs_algorithm(matrix,n);
+
                 } break;
 
             /// If the player gets board
@@ -272,7 +258,6 @@ void game_menu()
                     return;
                 } break;
         }
-        gata:
         if(player_poz_x==n-2&&player_poz_y==n-2)
         {
             player.score+=2;
@@ -404,13 +389,13 @@ void draw_maze(int *matrix,long n,int start_x,int start_y,int dim_cel,int show_c
     int no_zero=0,cel_l=1,cel_c=1;
 
     if(cel_start_x==3)
-        if(show_cel_no_y==n)
+        if(show_cel_no_x==n)
             line(start_x,start_y,(show_cel_no_y/2-1)*dim_cel+start_x,start_y);
         else
             line(start_x,start_y,(show_cel_no_y/2)*dim_cel+start_x,start_y);
 
     if(cel_start_y==3)
-        if(show_cel_no_x==n)
+        if(show_cel_no_y==n)
             line(start_x,start_y,start_x,(show_cel_no_x/2+1)*dim_cel+start_x);
         else
             line(start_x,start_y,start_x,(show_cel_no_x/2+2)*dim_cel+start_x);

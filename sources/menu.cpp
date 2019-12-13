@@ -78,11 +78,9 @@ void main_menu()
     settextstyle(font_style,direction,font_size_int_med);
     outtextxy(220,360,"b. Exit");
 
-    printf("menu_select\n");
     char choise;
     selection:
         choise=getch();
-        printf("%c\n",choise);
         switch(choise)
         {
             case '1': start_menu(); break;
